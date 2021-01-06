@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEMITONE DIFFERENCE GUI</title>
+    <script src="js/script.js"></script>
+  </head>
+
+  <body>
+    <div style="text-align: center">
+      <button
+        onclick="document.getElementById('demo').innerHTML = notes[0] + ` - ` + notes[1]"
+      >
+        Get random notes
+      </button>
+      <h3 id="demo"></h3>
+      <hr style="border: 0ch" />
+      <label>Enter Your Answer:</label><br />
+      <input id="num" />
+      <hr style="border: 0ch" />
+      <button type="button" onclick="myFunction()">Submit Answer</button>
+    </div>
+  </body>
+</html> 

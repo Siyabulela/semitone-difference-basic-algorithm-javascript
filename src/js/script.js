@@ -39,4 +39,13 @@ console.log(correct);
 correct = buddy.checkAnswer(2);
 console.log(correct);
 
+function myFunction() {
+  var x = document.getElementById("num").value;
+
+  correct = buddy.checkAnswer(x);
+  if (correct == true) {
+    alert("You got it right .Well Done!");
+    location.reload();
+  } else alert("Wrong answer! Try again");
+}
 module.exports = { buddy };
