@@ -10,7 +10,7 @@ describe("Given two musical tones, user should guess how many semetones between 
   });
 });
 describe(`index.html`, function () {
-  var browser;
+  let browser;
 
   beforeEach(function (done) {
     JSDOM.fromFile(`./src/index.html`).then(function (res) {
@@ -24,12 +24,11 @@ describe(`index.html`, function () {
   });
 
   it(`should have </div> element`, function () {
-    var div = browser.window.document.querySelector(`div`);
+    let div = browser.window.document.querySelector(`div`);
     expect(div).not.toBe(null);
   });
   it(`should have </script> element`, function () {
-    var script = browser.window.document.querySelector(`script`);
+    let script = browser.window.document.querySelector(`script`);
     expect(script).not.toBe(null);
   });
 });
- 

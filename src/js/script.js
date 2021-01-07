@@ -1,11 +1,11 @@
-var noteCircle = `A A# B C C# D D# E F F# G G#`.split(` `);
-var arr = [],
+let noteCircle = `A A# B C C# D D# E F F# G G#`.split(` `),
+  arr = [],
   returnedNum,
   selectedSemi = [];
 
 class JamBuddy {
   selectNotes() {
-    for (var i = 0; i < 2; i++) {
+    for (let i = 0; i < 2; i++) {
       selectedSemi.push(
         noteCircle[Math.floor(Math.random() * noteCircle.length)]
       );
@@ -14,8 +14,8 @@ class JamBuddy {
   }
 
   checkAnswer(userInput) {
-    for (var i = 0; i < noteCircle.length; i++) {
-      for (var j = 0; j < selectedSemi.length; j++) {
+    for (let i = 0; i < noteCircle.length; i++) {
+      for (let j = 0; j < selectedSemi.length; j++) {
         if (selectedSemi[j] == noteCircle[i]) {
           arr.push(noteCircle.indexOf(noteCircle[i]));
         }
@@ -31,20 +31,13 @@ class JamBuddy {
 }
 let buddy = new JamBuddy();
 let notes = buddy.selectNotes();
-console.log(notes);
-
-let correct = buddy.checkAnswer(1);
-console.log(correct);
-
-correct = buddy.checkAnswer(2);
-console.log(correct);
 
 function myFunction() {
-  var x = document.getElementById("num").value;
-
+  let x = document.getElementById("num").value;
   correct = buddy.checkAnswer(x);
+
   if (correct == true) {
-    alert("You got it right .Well Done!");
+    alert("You got it right. Well Done!");
     location.reload();
   } else alert("Wrong answer! Try again");
 }
