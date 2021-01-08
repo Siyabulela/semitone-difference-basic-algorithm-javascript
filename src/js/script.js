@@ -1,23 +1,23 @@
-let noteCircle = `A A# B C C# D D# E F F# G G#`.split(` `),
-  arr = [],
-  returnedNum,
-  selectedSemi = [];
-
 class JamBuddy {
+  constructor(){
+    this.noteCircle = `A A# B C C# D D# E F F# G G#`.split(` `),
+    this.selectedSemi = [];
+  }
   selectNotes() {
     for (let i = 0; i < 2; i++) {
-      selectedSemi.push(
-        noteCircle[Math.floor(Math.random() * noteCircle.length)]
+      this.selectedSemi.push(
+        this.noteCircle[Math.floor(Math.random() * this.noteCircle.length)]
       );
     }
-    return selectedSemi;
+    return this.selectedSemi;
   }
 
   checkAnswer(userInput) {
-    for (let i = 0; i < noteCircle.length; i++) {
-      for (let j = 0; j < selectedSemi.length; j++) {
-        if (selectedSemi[j] == noteCircle[i]) {
-          arr.push(noteCircle.indexOf(noteCircle[i]));
+    let arr = [], returnedNum;
+    for (let i = 0; i < this.noteCircle.length; i++) {
+      for (let j = 0; j < this.selectedSemi.length; j++) {
+        if (this.selectedSemi[j] == this.noteCircle[i]) {
+          arr.push(this.noteCircle.indexOf(this.noteCircle[i]));
         }
       }
     }
