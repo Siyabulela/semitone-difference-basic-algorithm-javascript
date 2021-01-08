@@ -1,27 +1,34 @@
 class JamBuddy {
-  constructor(){
-    this.noteCircle = `A A# B C C# D D# E F F# G G#`.split(` `),
-    this.selectedSemi = [];
+  constructor() {
+    (this.noteCircle = `A A# B C C# D D# E F F# G G#`.split(` `)),
+      (this.selectedSemi = []);
+  }
+  shuffle() {
+    let newNotes = [...this.noteCircle];
+    for (var i = 0; i < newNotes.length; i++) {
+      var j = Math.floor(Math.random() * i);
+      let temp = newNotes[i];
+      newNotes[i] = newNotes[j];
+      newNotes[j] = temp;
+    }
+    return newNotes;
   }
   selectNotes() {
-    for (let i = 0; i < 2; i++) {
-      this.selectedSemi.push(
-        this.noteCircle[Math.floor(Math.random() * this.noteCircle.length)]
-      );
-    }
-    return this.selectedSemi;
+    let newNotes = this.shuffle();
+    newNotes = newNotes.sort((a, b) => a - b);
+    this.selectedSemi.push(newNotes[0], newNotes[1]);
+    return newNotes.slice(0, 2);
   }
 
   checkAnswer(userInput) {
-    let arr = [], returnedNum;
-    for (let i = 0; i < this.noteCircle.length; i++) {
-      for (let j = 0; j < this.selectedSemi.length; j++) {
-        if (this.selectedSemi[j] == this.noteCircle[i]) {
-          arr.push(this.noteCircle.indexOf(this.noteCircle[i]));
-        }
-      }
-    }
-    returnedNum = Math.abs(arr[0] - arr[1]);
+    let arr = [],
+      returnedNum;
+    let newData = document.getElementById("demo").innerHTML;
+    newData = newData.split(",");
+
+    returnedNum = Math.abs(
+      this.noteCircle.indexOf(newData[0]) - this.noteCircle.indexOf(newData[1])
+    );
 
     if (userInput == returnedNum) {
       return true;
@@ -30,7 +37,6 @@ class JamBuddy {
   }
 }
 let buddy = new JamBuddy();
-let notes = buddy.selectNotes();
 
 function myFunction() {
   let x = document.getElementById("num").value;
@@ -41,4 +47,9 @@ function myFunction() {
     location.reload();
   } else alert("Wrong answer! Try again");
 }
+
+function showNotes() {
+  document.getElementById("demo").innerHTML = buddy.selectNotes();
+}
+
 module.exports = { buddy };
