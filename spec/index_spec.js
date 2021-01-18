@@ -23,6 +23,11 @@ describe("Given two musical tones, user should guess how many semetones between 
     expect(Array.isArray(notes)).toBeTruthy();
     expect(notes.length).toBe(2);
   });
+  it("should handle normal notes and return the difference", () => {
+    buddy.selectedSemi = ["A", "G"];
+    expect(buddy.checkAnswer(10)).toBeTruthy();
+    expect(buddy.checkAnswer(8)).toBeFalsy();
+  });
 });
 
 describe(`index.html`, function () {

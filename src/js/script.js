@@ -46,11 +46,9 @@ class JamBuddy {
     return newNotes.slice(0, 2);
   }
   checkAnswer(userInput) {
-    let returnedNum,
-      newData = document.getElementById("demo").innerHTML;
-
-    returnedNum = Math.abs(
-      this.noteCircle.indexOf(newData[0]) - this.noteCircle.indexOf(newData[1])
+    let returnedNum = Math.abs(
+      this.noteCircle.indexOf(this.selectedSemi[0]) -
+        this.noteCircle.indexOf(this.selectedSemi[1])
     );
     if (userInput == returnedNum) {
       return true;
