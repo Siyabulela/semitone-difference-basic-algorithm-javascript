@@ -28,6 +28,11 @@ describe("Given two musical tones, user should guess how many semetones between 
     expect(buddy.checkAnswer(10)).toBeTruthy();
     expect(buddy.checkAnswer(8)).toBeFalsy();
   });
+  it("should handle flats and sharps notes and return the difference", () => {
+    buddy.selectedSemi = ["A#", "C#"];
+    expect(buddy.checkAnswer(3)).toBeTruthy();
+    expect(buddy.checkAnswer(6)).toBeFalsy();
+  });
 });
 
 describe(`index.html`, function () {

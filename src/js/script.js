@@ -2,17 +2,22 @@ class JamBuddy {
   constructor() {
     (this.noteCircle = [
       `A`,
-      [`A#`, `Bb`],
+      `A#`,
       `B`,
       `C`,
-      [`C#`, `Db`],
+      `C#`,
       `D`,
-      [`D#`, `Eb`],
+      `D#`,
       `E`,
       `F`,
-      [`F#`, `Gb`],
+      `F#`,
       `G`,
-      [`G#`, `Ab`],
+      `G#`,
+      `Bb`,
+      `Db`,
+      `Eb`,
+      `Gb`,
+      `Ab`,
     ]),
       (this.selectedSemi = []);
   }
@@ -27,25 +32,25 @@ class JamBuddy {
     return newNotes;
   }
   selectNotes() {
-    let newNotes = this.shuffle(),
-      index = 0;
-    newNotes = newNotes.sort((a, b) => a - b);
-
-    if (newNotes[0][1] != undefined) {
-      index = this.noteCircle.indexOf(newNotes[0]);
-      newNotes[0] = newNotes[0][Math.floor(Math.random() * 2)];
-      this.noteCircle[index] = newNotes[0];
-    }
-    if (newNotes[1][1] != undefined) {
-      index = this.noteCircle.indexOf(newNotes[1]);
-      newNotes[1] = newNotes[1][Math.floor(Math.random() * 2)];
-      this.noteCircle[index] = newNotes[1];
-    }
-
+    let newNotes = this.shuffle();
+    this.selectedSemi = [];
     this.selectedSemi.push(newNotes[0], newNotes[1]);
     return newNotes.slice(0, 2);
   }
   checkAnswer(userInput) {
+    for (var i = 0; i < 2; i++) {
+      if (this.selectedSemi[i] == "Ab") {
+        this.selectedSemi[i] = "G#";
+      } else if (this.selectedSemi[i] == "Bb") {
+        this.selectedSemi[i] = "A#";
+      } else if (this.selectedSemi[i] == "Db") {
+        this.selectedSemi[i] = "C#";
+      } else if (this.selectedSemi[i] == "Eb") {
+        this.selectedSemi[i] = "D#";
+      } else if (this.selectedSemi[i] == "Gb") {
+        this.selectedSemi[i] = "F#";
+      }
+    }
     let returnedNum = Math.abs(
       this.noteCircle.indexOf(this.selectedSemi[0]) -
         this.noteCircle.indexOf(this.selectedSemi[1])
@@ -60,7 +65,7 @@ let buddy = new JamBuddy();
 
 function myFunction() {
   let x = document.getElementById("num").value;
-  correct = buddy.checkAnswer(x);
+  let correct = buddy.checkAnswer(x);
 
   if (correct == true) {
     alert("You got it right. Well Done!");
