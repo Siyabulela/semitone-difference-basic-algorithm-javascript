@@ -63,7 +63,7 @@ class JamBuddy {
 }
 let buddy = new JamBuddy();
 
-function myFunction() {
+function submitAnswer() {
   let x = document.getElementById("num").value;
   let correct = buddy.checkAnswer(x);
 

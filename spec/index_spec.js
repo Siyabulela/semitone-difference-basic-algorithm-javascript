@@ -1,7 +1,7 @@
-const { buddy } = require("../src/js/script");
+const { buddy } = require("../src/script");
 const { JSDOM } = require("jsdom");
 const fs = require("fs");
-const html = fs.readFileSync("src/index.html", "utf-8");
+const html = fs.readFileSync("index.html", "utf-8");
 global.document = new JSDOM(html).window.document;
 let notes = buddy.selectNotes();
 
@@ -23,13 +23,13 @@ describe("Given two musical tones, user should guess how many semetones between 
     expect(Array.isArray(notes)).toBeTruthy();
     expect(notes.length).toBe(2);
   });
-  it("should handle normal notes and return the difference", () => {
+  it("should handle normal notes and output either true or false", () => {
     buddy.selectedSemi = ["A", "G"];
     expect(buddy.checkAnswer(10)).toBeTruthy();
     expect(buddy.checkAnswer(8)).toBeFalsy();
   });
-  it("should handle flats and sharps notes and return the difference", () => {
-    buddy.selectedSemi = ["A#", "C#"];
+  it("should handle flats and sharps notes and output either true or false", () => {
+    buddy.selectedSemi = ["A#", "Db"];
     expect(buddy.checkAnswer(3)).toBeTruthy();
     expect(buddy.checkAnswer(6)).toBeFalsy();
   });
@@ -39,7 +39,7 @@ describe(`index.html`, function () {
   let browser;
 
   beforeEach(function (done) {
-    JSDOM.fromFile(`./src/index.html`).then(function (res) {
+    JSDOM.fromFile(`index.html`).then(function (res) {
       browser = res;
       done();
     });
