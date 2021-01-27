@@ -70,14 +70,14 @@ class JamBuddy {
 }
 let buddy = new JamBuddy();
 
-function myFunction() {
+function submitAnswer() {
   let x = document.getElementById("num").value;
   let correct = buddy.checkAnswer(x);
   document.getElementById(`streakDefault`).style.visibility = `hidden`;
 
   if (correct == true) {
     buddy.streak++;
-    document.getElementById("explanation").innerHTML = reveal();
+    document.getElementById("explanation").innerHTML = revealAnswer();
     alert("You got it right. Well Done!");
   } else {
     alert("Wrong answer! Try again");
@@ -90,7 +90,7 @@ function showNotes() {
   document.getElementById("diff").innerHTML = ``;
   document.getElementById("explanation").innerHTML = ``;
 }
-function reveal() {
+function revealAnswer() {
   let notes = [
     `A`,
     `A#/Bb`,
@@ -136,4 +136,4 @@ function reveal() {
     `Final Answer: ` + buddy.difference();
   return str;
 }
-module.exports = { buddy, myFunction, showNotes, reveal };
+module.exports = { buddy, submitAnswer, showNotes, revealAnswer };

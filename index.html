@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SEMITONE DIFFERENCE GUI</title>
-  <link rel="stylesheet" href="css/stye.css">
-  <script src="js/script.js"></script>
+  <link rel="stylesheet" href="/src/css/stye.css">
+  <script src="/src/script.js"></script>
 </head>
 
 <body onload="showNotes()">
@@ -18,7 +18,7 @@
       <br />
       <input id="num" />
       <br />
-      <button class="button" type="button" onclick="myFunction()">Submit Answer</button>
+      <button class="button" type="button" onclick="submitAnswer()">Submit Answer</button>
     </td>
     <td>
       <div>
@@ -26,7 +26,7 @@
         <div id="streak"></div>
       </div>
       <hr style="border: 0ch" />
-      <button class="button" type="button" onclick="reveal()">Reveal Answer</button>
+      <button class="button" type="button" onclick="revealAnswer()">Reveal Answer</button>
       <hr style="border: 0ch" />
       <div id="explanation"></div>
       <hr style="border: 0ch" />
