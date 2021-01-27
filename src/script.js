@@ -22,6 +22,8 @@ class JamBuddy {
       (this.selectedSemi = []),
       (this.answer = 0),
       (this.streak = 0);
+      (this.selectedSemi = []);
+
   }
   shuffle() {
     let newNotes = [...this.noteCircle];
@@ -137,3 +139,14 @@ function revealAnswer() {
   return str;
 }
 module.exports = { buddy, submitAnswer, showNotes, revealAnswer };
+
+  if (correct == true) {
+    alert("You got it right. Well Done!");
+    location.reload();
+  } else alert("Wrong answer! Try again");
+}
+
+function showNotes() {
+  document.getElementById("demo").innerHTML = buddy.selectNotes();
+}
+module.exports = { buddy };

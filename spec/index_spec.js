@@ -1,4 +1,5 @@
 const { buddy , submitAnswer, showNotes, revealAnswer } = require("../src/script");
+const { buddy } = require("../src/script");
 const { JSDOM } = require("jsdom");
 const fs = require("fs");
 const html = fs.readFileSync("index.html", "utf-8");
