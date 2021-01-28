@@ -5,19 +5,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SEMITONE DIFFERENCE GUI</title>
+  <link rel="stylesheet" href="./src/css/stye.css">
+  <script src="./src/script.js"></script>
 </head>
 
-<body>
-  <div style="text-align: center">
-    <button onclick="showNotes()">Get random notes</button>
-    <h3 id="demo"></h3>
-    <hr style="border: 0ch" />
-    <label>Enter Your Answer:</label><br />
-    <input id="num" />
-    <hr style="border: 0ch" />
-    <button type="button" onclick="submitAnswer()">Submit Answer</button>
-  </div>
-  <script src="src/script.js"></script>
+<body onload="showNotes()">
+  <table>
+    <td>
+      <button class="button" onclick="showNotes()">Get random notes</button>
+      <h4 id="demo"></h4>
+      <label>Enter Your Answer:</label>
+      <br />
+      <input id="num" />
+      <br />
+      <button class="button" type="button" onclick="submitAnswer()">Submit Answer</button>
+    </td>
+    <td>
+      <div>
+        <div id="streakDefault">Streak : 0</div>
+        <div id="streak"></div>
+      </div>
+      <hr style="border: 0ch" />
+      <button class="button" type="button" onclick="revealAnswer()">Reveal Answer</button>
+      <hr style="border: 0ch" />
+      <div id="explanation"></div>
+      <hr style="border: 0ch" />
+      <div id="diff"></div>
+    </td>
+  </table>
 </body>
 
 </html>

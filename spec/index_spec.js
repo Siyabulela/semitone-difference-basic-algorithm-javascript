@@ -1,4 +1,4 @@
-const { buddy } = require("../src/script");
+const { buddy , submitAnswer, showNotes, revealAnswer } = require("../src/script");
 const { JSDOM } = require("jsdom");
 const fs = require("fs");
 const html = fs.readFileSync("index.html", "utf-8");
@@ -14,6 +14,15 @@ describe("Given two musical tones, user should guess how many semetones between 
   });
   it("should check if shuffle function exist", () => {
     expect(buddy.selectNotes).toBeDefined();
+  });
+  it("should check if submitAnswer function exist", () => {
+    expect(submitAnswer).toBeDefined();
+  });
+  it("should check if showNotes function exist", () => {
+    expect(showNotes).toBeDefined();
+  });
+  it("should check if reveal function exist", () => {
+    expect(revealAnswer).toBeDefined();
   });
   it("should compare user input to semitones returned and return true if they match, or false if they don't match", () => {
     expect(buddy.checkAnswer(1)).toMatch(/true|false/);
