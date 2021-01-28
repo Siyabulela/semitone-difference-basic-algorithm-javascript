@@ -22,8 +22,6 @@ class JamBuddy {
       (this.selectedSemi = []),
       (this.answer = 0),
       (this.streak = 0);
-      (this.selectedSemi = []);
-
   }
   shuffle() {
     let newNotes = [...this.noteCircle];
